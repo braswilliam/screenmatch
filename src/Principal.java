@@ -1,4 +1,6 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -10,8 +12,6 @@ public class Principal {
         meuFilme.setNome("Duna parte dois");
         meuFilme.setAnoDeLancamento(2024);
         meuFilme.setDuracaoEmMinutos(180);
-
-
 
         meuFilme.avalia(10.0);
         meuFilme.avalia(9.5);
@@ -46,7 +46,18 @@ public class Principal {
         calculadora.incluirNaCalculadora(lost);
 
         //pega o tempo total do filme:
-        System.out.println(calculadora.getTempoTotal());
+        System.out.println("Tempo total dos filmes listados: " + calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalvisualizacoes(300);
+        filtro.filtra(episodio);
+
+
 
 
 
